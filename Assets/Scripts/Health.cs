@@ -1,54 +1,44 @@
-using System.Collections;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private Text _healthText;
-    [SerializeField] private Image _healthBar;
-    [SerializeField] private Image _smoothHealthBar;
+    [SerializeField] private HealButton _healButton;
+    [SerializeField] private DamageButton _damageButton;
 
-    private float _health;
-    private float _speed = 0.00001f;
+    public event Action changingHealth;
 
-    private void Start()
+    public float _maxHeroHealth { get; private set; }
+
+    public float _heroHealth { get; private set; }
+
+    private void OnEnable()
     {
-        _health = _maxHealth;
-        PrintHealth();
+        _healButton.healHero += Heal;
+        _damageButton.damageHero += TakeDamage;
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        PrintHealth();
-        StartCoroutine(SmoothFill());
-        _healthBar.fillAmount = _health / _maxHealth;
+        _healButton.healHero -= Heal;
+        _damageButton.damageHero -= TakeDamage;
+    }
+
+    private void Awake()
+    {
+        _maxHeroHealth = 100;
+        _heroHealth = _maxHeroHealth;
     }
 
     public void Heal(int amountHealth)
     {
-        _health += amountHealth;
+        _heroHealth += amountHealth;
+        changingHealth.Invoke();
     }
 
     public void TakeDamage(int amountDamage)
     {
-        _health -= amountDamage;
-    }
-
-    private void PrintHealth()
-    {
-        _healthText.text = _health + "/" + _maxHealth + "ея";
-    }
-
-    private IEnumerator SmoothFill()
-    {
-        float trueValue = _health / _maxHealth;
-
-        while (Mathf.Abs(_smoothHealthBar.fillAmount - trueValue) > 0.01f)
-        {
-            _smoothHealthBar.fillAmount = Mathf.MoveTowards(_smoothHealthBar.fillAmount, trueValue, _speed);
-
-            yield return null;
-        }
+        _heroHealth -= amountDamage;
+        changingHealth.Invoke();
     }
 }
