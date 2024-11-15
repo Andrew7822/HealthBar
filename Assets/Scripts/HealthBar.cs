@@ -14,12 +14,12 @@ public class HealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.changingHealth += fillAmountHealth;
+        _health.ChangingHealth += fillAmountHealth;
     }
 
     private void OnDisable()
     {
-        _health.changingHealth -= fillAmountHealth;
+        _health.ChangingHealth -= fillAmountHealth;
     }
 
     private void fillAmountHealth()

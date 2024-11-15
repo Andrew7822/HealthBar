@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     [SerializeField] private HealButton _healButton;
     [SerializeField] private DamageButton _damageButton;
 
-    public event Action changingHealth;
+    public event Action ChangingHealth;
 
     public float _maxHeroHealth { get; private set; }
 
@@ -33,12 +33,12 @@ public class Health : MonoBehaviour
     public void Heal(int amountHealth)
     {
         _heroHealth += amountHealth;
-        changingHealth.Invoke();
+        ChangingHealth.Invoke();
     }
 
     public void TakeDamage(int amountDamage)
     {
         _heroHealth -= amountDamage;
-        changingHealth.Invoke();
+        ChangingHealth.Invoke();
     }
 }

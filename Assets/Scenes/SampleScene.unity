@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 3944201}
   - component: {fileID: 3944200}
   - component: {fileID: 3944199}
+  - component: {fileID: 3944202}
   m_Layer: 5
   m_Name: HealthBarSmooth
   m_TagString: Untagged
@@ -197,6 +198,19 @@ RectTransform:
   m_AnchoredPosition: {x: 374, y: 97}
   m_SizeDelta: {x: 210, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3944202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 427ba4fd659430c41b4b8a02f2e6c0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1399452351}
 --- !u!1 &110863546
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +222,7 @@ GameObject:
   - component: {fileID: 110863549}
   - component: {fileID: 110863548}
   - component: {fileID: 110863547}
+  - component: {fileID: 110863550}
   m_Layer: 5
   m_Name: HealthHero
   m_TagString: Untagged
@@ -276,6 +291,19 @@ RectTransform:
   m_AnchoredPosition: {x: 5, y: 183}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &110863550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110863546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31557e8801710b849920c696a82b0407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1399452351}
 --- !u!1 &490672681
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +715,7 @@ GameObject:
   - component: {fileID: 850598296}
   - component: {fileID: 850598298}
   - component: {fileID: 850598297}
+  - component: {fileID: 850598299}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -751,6 +780,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850598295}
   m_CullTransparentMesh: 1
+--- !u!114 &850598299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850598295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b373051c795e44a865d3ac57491a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1399452351}
 --- !u!1 &1195242902
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +805,7 @@ GameObject:
   - component: {fileID: 1195242906}
   - component: {fileID: 1195242905}
   - component: {fileID: 1195242904}
+  - component: {fileID: 1195242907}
   m_Layer: 5
   m_Name: TakeDamage
   m_TagString: Untagged
@@ -833,19 +876,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1195242905}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1399452351}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1195242905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,6 +915,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195242902}
   m_CullTransparentMesh: 1
+--- !u!114 &1195242907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195242902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3cbebfed732d546aa23226261d15f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1399452350
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,10 +959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad60ee3eebd47ca4f974945ac5f53cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _healthText: {fileID: 110863547}
-  _healthBar: {fileID: 850598297}
-  _smoothHealthBar: {fileID: 3944199}
+  _healButton: {fileID: 2013612151}
+  _damageButton: {fileID: 1195242907}
 --- !u!65 &1399452352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1152,6 +1193,7 @@ GameObject:
   - component: {fileID: 2013612150}
   - component: {fileID: 2013612149}
   - component: {fileID: 2013612148}
+  - component: {fileID: 2013612151}
   m_Layer: 5
   m_Name: Heal
   m_TagString: Untagged
@@ -1222,19 +1264,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2013612149}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1399452351}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: Heal
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2013612149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1273,6 +1303,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013612146}
   m_CullTransparentMesh: 1
+--- !u!114 &2013612151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013612146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906dbf6e40f20304cb12c138b4f7092e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

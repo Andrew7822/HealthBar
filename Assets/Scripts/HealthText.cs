@@ -15,12 +15,12 @@ public class HealthText : MonoBehaviour
     private void OnEnable()
     {
         PrintHealth();
-        _health.changingHealth += PrintHealth;
+        _health.ChangingHealth += PrintHealth;
     }
 
     private void OnDisable()
     {
-        _health.changingHealth -= PrintHealth;
+        _health.ChangingHealth -= PrintHealth;
     }
 
     private void Start()

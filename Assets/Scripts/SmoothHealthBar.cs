@@ -9,6 +9,7 @@ public class SmoothHealthBar : MonoBehaviour
     private Image _healthBarSmooth;
 
     private float _speed = 0.3f;
+    private float _speedCoefficient = 0.01f;
 
     private void Awake()
     {
@@ -17,12 +18,12 @@ public class SmoothHealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.changingHealth += FillHealth;
+        _health.ChangingHealth += FillHealth;
     }
 
     private void OnDisable()
     {
-        _health.changingHealth -= FillHealth;
+        _health.ChangingHealth -= FillHealth;
     }
 
     private void FillHealth()
@@ -34,7 +35,7 @@ public class SmoothHealthBar : MonoBehaviour
     {
         float trueValue = _health._heroHealth / _health._maxHeroHealth;
 
-        while (Mathf.Abs(_healthBarSmooth.fillAmount - trueValue) > 0.01f)
+        while (Mathf.Abs(_healthBarSmooth.fillAmount - trueValue) > _speedCoefficient)
         {
             _healthBarSmooth.fillAmount = Mathf.MoveTowards(_healthBarSmooth.fillAmount, trueValue, _speed * Time.deltaTime);
 
